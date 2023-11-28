@@ -1,14 +1,16 @@
 <?php
 use App\Models\mahasiswa;
 ?>
-@extends('layouts.app')
+@extends('layouts.app2')
 
+@section('brd1','Mahasiswa')
+@section('brd2','Mahasiswa')
 @section('title','Mahasiswa')
 @section('content')
     <div>
         <p style="text-align:center; font-size: 48px; margin-top:36px; font-weight: bold">DATA MAHASISWA</p>    
         <div class="d-flex justify-content-center">
-            <table style="width:70%; margin-bottom: 24px">
+            <table class="table table-bordered table-hover">
                 <tr>
                     <th>ID</th>
                     <th>StudentID</th>
@@ -17,28 +19,17 @@ use App\Models\mahasiswa;
                     <th>Tahun Masuk</th>
                 </tr>
                 <tr>
-                    <?php
-                        $mahasiswas = mahasiswa::all();
-                        foreach ($mahasiswas as $mahasiswa ) {
-                            echo '<tr>';
-                            echo '<td>';
-                            echo $mahasiswa->id;
-                            echo '</td>';
-                            echo '<td>';
-                            echo $mahasiswa->studentID;
-                            echo '</td>';
-                            echo '<td>';
-                            echo $mahasiswa->nama;
-                            echo '</td>';
-                            echo '<td>';
-                            echo $mahasiswa->jurusan;
-                            echo '</td>';
-                            echo '<td>';
-                            echo $mahasiswa->tahunMasuk;
-                            echo '</td>';
-                            echo '</tr>';
-                        }
-                    ?>
+         
+                    @foreach ($mahasiswas as $mahasiswa )
+                        <tr>
+                            <td>{{ $mahasiswa->id }}</td>
+                            <td>{{ $mahasiswa->studentID }}</td>
+                            <td>{{ $mahasiswa->nama }}</td>
+                            <td>{{ $mahasiswa->jurusan }}</td>
+                            <td>{{ $mahasiswa->tahunMasuk }}</td>
+                        </tr>
+                    @endforeach
+                
                     
                 </tr>
                

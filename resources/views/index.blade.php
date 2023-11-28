@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('title','Home')
+@section('brd1','Selamat Datang')
+@section('brd2','Selamat Datang')
 @section('content')
     <center>
         <h3>Selamat Datang <br>
